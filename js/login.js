@@ -4,12 +4,13 @@ const loginForm = document.getElementById("loginForm");
 const loginMessage = document.getElementById("loginMessage");
 const loginButton = document.getElementById("loginButton");
 const loginButtonText = document.getElementById("loginButtonText");
+const googleButton = document.querySelector(".google-btn");
 
 let firebaseReady = false;
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOsVXsyjwKoce2J2wGXf0fzNqJMMFrGJg",
- /authDomain: "smartcard-ldk火狐app.com",
+  authDomain: "smartcard-ldk.firebaseapp.com",
   projectId: "smartcard-ldk",
   storageBucket: "smartcard-ldk.firebasestorage.app",
   messagingSenderId: "958690589205",
@@ -60,6 +61,10 @@ function initFirebase() {
         firebase.initializeApp(firebaseConfig);
         firebaseReady = true;
         console.log("Firebase initialized");
+        if (googleButton) {
+            googleButton.disabled = false;
+            googleButton.textContent = "Continue with Google";
+        }
         checkRedirectResult();
     } catch (error) {
         console.error("Firebase init error:", error);
@@ -77,10 +82,18 @@ async function googleLogin() {
         const provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('email');
         provider.addScope('profile');
+        if (googleButton) {
+            googleButton.disabled = true;
+            googleButton.textContent = "Signing in...";
+        }
         await auth.signInWithRedirect(provider);
     } catch (error) {
         console.error("Google sign-in error:", error);
         showLoginMessage(error.message || "Google sign-in failed.");
+        if (googleButton) {
+            googleButton.disabled = false;
+            googleButton.textContent = "Continue with Google";
+        }
     }
 }
 
