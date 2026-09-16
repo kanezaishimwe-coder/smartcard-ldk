@@ -1,0 +1,62 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}
+body{min-height:100vh;color:#111;overflow-x:hidden}
+.background{position:fixed;inset:0;background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.95)),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaZIZ1jmXZeuQFcW6LVg6jBiUBA-DMmEy00jUApH6ugQ&s=10") center/cover no-repeat;z-index:-1}
+.navbar{height:76px;background:#16a34a;display:flex;align-items:center;justify-content:space-between;padding:0 45px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.logo{color:#fff;font-size:23px;font-weight:800}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;transition:.2s}
+.nav-links a:hover{opacity:.75}
+.hero{max-width:1180px;margin:38px auto;display:grid;grid-template-columns:1fr 430px;gap:50px;align-items:center;padding:15px}
+.hero-text h1{font-size:56px;line-height:1.08;font-weight:900;max-width:650px}
+.hero-text span{color:#16a34a}
+.hero-text p{margin:18px 0;font-size:18px;color:#555;line-height:1.5;max-width:620px}
+.hero-text button{background:#000;color:#fff;border:0;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:.2s}
+.hero-text button:hover{background:#16a34a;transform:translateY(-2px)}
+.register-card{background:#fff;padding:27px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.13);animation:float 4s infinite alternate}
+@keyframes float{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+.register-card h2{font-size:27px}
+.subtitle{color:#666;margin:6px 0 15px;font-size:14px}
+label{font-size:13px;font-weight:600;display:block;margin-top:10px}
+input,select{width:100%;padding:12px;margin-top:5px;border-radius:9px;border:1px solid #ddd;outline:0;font-size:14px;background:#fff}
+input:focus,select:focus{border-color:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,.1)}
+.password-box{display:flex;gap:5px}
+.password-box input{flex:1}
+.password-box button{border:0;background:#eee;padding:0 13px;cursor:pointer;border-radius:9px;font-size:16px}
+.password-strength{height:4px;background:#eee;border-radius:5px;margin-top:6px;overflow:hidden}
+#strengthBar{height:100%;width:0;border-radius:5px;transition:.2s}
+.terms{display:flex;align-items:center;gap:7px;margin-top:13px;font-size:12px;color:#555}
+.terms input{width:16px;height:16px;margin:0;accent-color:#16a34a}
+.register-btn{width:100%;margin-top:15px;padding:13px;border:0;border-radius:10px;background:#16a34a;color:#fff;font-weight:700;font-size:15px;cursor:pointer;transition:.2s}
+.register-btn:hover{background:#15803d}
+.divider{display:flex;align-items:center;gap:9px;margin:15px 0;color:#999;font-size:11px}
+.divider:before,.divider:after{content:"";height:1px;background:#ddd;flex:1}
+.google-btn{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;background:#fff;color:#222;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:.2s}
+.google-btn span{font-size:18px;font-weight:800}
+.google-btn:hover{background:#f8fafc;border-color:#bbb}
+.login-link{text-align:center;margin-top:13px;font-size:12px;color:#666}
+.login-link a{color:#16a34a;text-decoration:none;font-weight:700}
+#message{margin-top:10px;text-align:center;font-size:12px;font-weight:600}
+@media(max-width:900px){
+.navbar{height:68px;padding:0 18px}
+.logo{font-size:19px}
+.nav-links{gap:15px}
+.nav-links a{font-size:12px}
+.hero{grid-template-columns:1fr;margin:25px auto;padding:15px;gap:25px}
+.hero-text{text-align:center}
+.hero-text h1{font-size:40px;margin:auto}
+.hero-text p{font-size:16px;margin:14px auto 18px}
+.register-card{max-width:430px;width:100%;margin:auto}
+}
+@media(max-width:500px){
+.navbar{height:auto;min-height:68px;padding:12px 10px;flex-direction:column;gap:9px}
+.logo{font-size:19px}
+.nav-links{width:100%;justify-content:center;gap:16px}
+.nav-links a{font-size:11px}
+.hero{margin:15px auto;padding:10px;gap:20px}
+.hero-text h1{font-size:32px}
+.hero-text p{font-size:15px}
+.hero-text button{padding:13px 25px}
+.register-card{padding:20px 16px;border-radius:17px}
+.register-card h2{font-size:23px}
+input,select{padding:11px}
+}

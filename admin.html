@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCard L.D.K Admin</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         ADMIN LOGIN
+    ====================================================== -->
+
+    <div id="adminLogin" class="admin-login">
+
+        <div class="admin-login-card">
+
+            <div class="admin-logo">🎓</div>
+
+            <h1>SmartCard L.D.K</h1>
+            <p>Headmaster Administration</p>
+
+            <form id="adminLoginForm">
+
+                <label for="adminUsername">Username</label>
+
+                <input
+                    id="adminUsername"
+                    type="text"
+                    placeholder="Headmaster username"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="adminPassword">Password</label>
+
+                <div class="admin-password">
+
+                    <input
+                        id="adminPassword"
+                        type="password"
+                        placeholder="Enter secure password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        onclick="toggleAdminPassword()"
+                        aria-label="Show password"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="admin-login-btn"
+                >
+                    Sign In
+                </button>
+
+                <p id="adminLoginMessage"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ADMIN PANEL
+    ====================================================== -->
+
+    <div id="adminPanel" class="admin-panel hidden">
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <nav class="admin-nav">
+
+            <div class="admin-brand">
+                🎓 SmartCard <span>L.D.K</span>
+            </div>
+
+            <div class="admin-actions">
+
+                <span id="adminName">Headmaster</span>
+
+                <button
+                    type="button"
+                    onclick="window.location.href='activities.html'"
+                >
+                    📅 Activities
+                </button>
+
+                <button
+                    id="openRfidScanner"
+                    type="button"
+                    onclick="openRfidScanner()"
+                >
+                    📡 RFID Scanner
+                </button>
+
+                <button
+                    type="button"
+                    onclick="adminLogout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </nav>
+
+
+        <!-- =================================================
+             MAIN ADMIN CONTENT
+        ================================================== -->
+
+        <main class="admin-container">
+
+            <!-- =============================================
+                 STUDENT REGISTRATION
+            ============================================== -->
+
+            <section class="admin-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>🎓 Register Student</h2>
+
+                        <p>
+                            Create a student record before assigning
+                            an RFID SmartCard.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <form
+                    id="studentRegistrationForm"
+                    class="card-form"
+                    autocomplete="off"
+                >
+
+                    <div>
+
+                        <label for="newStudentId">
+                            Student ID
+                        </label>
+
+                        <input
+                            id="newStudentId"
+                            type="text"
+                            placeholder="ST20260001"
+                            required
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <label for="newStudentName">
+                            Student Name
+                        </label>
+
+                        <input
+                            id="newStudentName"
+                            type="text"
+                            placeholder="John Doe"
+                            required
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <label for="newStudentClass">
+                            Student Class
+                        </label>
+
+                        <input
+                            id="newStudentClass"
+                            type="text"
+                            placeholder="S4 MPC"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="card-form-buttons">
+
+                        <button type="submit">
+                            Register Student
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <p id="studentRegistrationMessage"></p>
+
+            </section>
+
+
+            <!-- =============================================
+                 RFID CARD MANAGEMENT
+            ============================================== -->
+
+            <section class="admin-section card-management">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>📡 RFID Card Management</h2>
+
+                        <p>
+                            Assign or remove SmartCards from
+                            registered students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <form
+                    id="cardForm"
+                    class="card-form"
+                    autocomplete="off"
+                >
+
+                    <div>
+
+                        <label for="cardStudent">
+                            Student Name
+                        </label>
+
+                        <select
+                            id="cardStudent"
+                            required
+                        >
+                            <option value="">
+                                Select student
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div>
+
+                        <label for="rfidCardId">
+                            RFID Card ID
+                        </label>
+
+                        <input
+                            id="rfidCardId"
+                            type="text"
+                            placeholder="RFID001"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="card-form-buttons">
+
+                        <button type="submit">
+                            Assign Card
+                        </button>
+
+                        <button
+                            type="button"
+                            id="removeCardBtn"
+                        >
+                            Remove Card
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <p id="cardMessage"></p>
+
+            </section>
+
+
+            <!-- =============================================
+                 ADMIN HEADER
+            ============================================== -->
+
+            <div class="admin-header">
+
+                <p class="admin-label">
+                    ADMINISTRATION
+                </p>
+
+                <h1>School Management</h1>
+
+                <p>
+                    Manage students, SmartCards, payments
+                    and attendance.
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+                 ADMIN STATISTICS
+            ============================================== -->
+
+            <div class="admin-stats">
+
+                <div class="admin-card">
+
+                    <span>Total Students</span>
+
+                    <strong id="totalStudents">0</strong>
+
+                </div>
+
+                <div class="admin-card">
+
+                    <span>Total Balance</span>
+
+                    <strong id="totalBalance">
+                        0 RWF
+                    </strong>
+
+                </div>
+
+                <div class="admin-card">
+
+                    <span>Attendance</span>
+
+                    <strong id="schoolAttendance">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="admin-card">
+
+                    <span>Active Cards</span>
+
+                    <strong id="activeCards">0</strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 STUDENT MANAGEMENT
+            ============================================== -->
+
+            <section class="admin-section student-management">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>Student Management</h2>
+
+                        <p>
+                            Registered students and SmartCard
+                            information.
+                        </p>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        id="studentSearch"
+                        placeholder="Search student..."
+                    >
+
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Student</th>
+                                <th>Student ID</th>
+                                <th>Class</th>
+                                <th>Balance</th>
+                                <th>Attendance</th>
+                                <th>Card</th>
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="studentTableBody"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 PAYMENTS + ATTENDANCE
+            ============================================== -->
+
+            <div class="admin-grid">
+
+                <section class="admin-section">
+
+                    <div class="section-heading">
+                        <h2>📚 Library Circulation</h2>
+                    </div>
+
+                    <div id="libraryLoans"></div>
+
+                </section>
+
+                <section class="admin-section">
+
+                    <div class="section-heading">
+
+                        <h2>💳 Recent Payments</h2>
+
+                    </div>
+
+                    <div id="paymentList"></div>
+
+                </section>
+
+
+                <section class="admin-section">
+
+                    <div class="section-heading">
+
+                        <h2>🕘 Recent Attendance</h2>
+
+                    </div>
+
+                    <div id="attendanceList"></div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT FILES
+    ====================================================== -->
+
+    <!-- Firebase -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <script src="js/rfid.js"></script>
+    <script src="js/rfid-admin.js"></script>
+    <script src="js/admin.js"></script>
+
+
+    <!-- =====================================================
+         STUDENT REGISTRATION SUPPORT
+    ====================================================== -->
+
+    <script>
+        "use strict";
+
+        function getSmartCardUsers() {
+
+            try {
+
+                const users = JSON.parse(
+                    localStorage.getItem("smartCampusUsers") || "[]"
+                );
+
+                return Array.isArray(users) ? users : [];
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to read SmartCard users:",
+                    error
+                );
+
+                return [];
+
+            }
+
+        }
+
+
+        function saveSmartCardUsers(users) {
+
+            localStorage.setItem(
+                "smartCampusUsers",
+                JSON.stringify(users)
+            );
+
+        }
+
+
+        const studentRegistrationForm =
+            document.getElementById(
+                "studentRegistrationForm"
+            );
+
+
+        studentRegistrationForm?.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const studentId =
+                    document
+                        .getElementById("newStudentId")
+                        ?.value
+                        .trim()
+                        .toUpperCase();
+
+                const studentName =
+                    document
+                        .getElementById("newStudentName")
+                        ?.value
+                        .trim();
+
+                const studentClass =
+                    document
+                        .getElementById("newStudentClass")
+                        ?.value
+                        .trim();
+
+                const message =
+                    document.getElementById(
+                        "studentRegistrationMessage"
+                    );
+
+
+                if (
+                    !studentId ||
+                    !studentName ||
+                    !studentClass
+                ) {
+
+                    if (message) {
+
+                        message.textContent =
+                            "Please complete all student fields.";
+
+                        message.style.color =
+                            "#dc2626";
+
+                    }
+
+                    return;
+
+                }
+
+
+                try {
+                    const response = await fetch(
+                        "http://localhost:3000/api/students",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                studentId,
+                                name: studentName,
+                                class: studentClass
+                            })
+                        }
+                    );
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(
+                            data.message ||
+                            "Unable to register student."
+                        );
+                    }
+
+                    if (message) {
+                        message.textContent =
+                            `Student ${studentName} registered successfully.`;
+                        message.style.color = "#15803d";
+                    }
+
+                    studentRegistrationForm.reset();
+
+                    if (typeof loadAdminData === "function") {
+                        await loadAdminData();
+                    }
+
+                    if (typeof loadCardStudents === "function") {
+                        loadCardStudents();
+                    }
+                } catch (error) {
+                    if (message) {
+                        message.textContent = error.message;
+                        message.style.color = "#dc2626";
+                    }
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

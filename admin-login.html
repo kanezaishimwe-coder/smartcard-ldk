@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SmartCard L.D.K | Headmaster Login</title>
+<link rel="stylesheet" href="css/admin-login.css">
+</head>
+<body>
+
+<div class="admin-login-page">
+
+<div class="admin-login-card">
+
+<div class="admin-logo">
+🎓
+</div>
+
+<h1>Headmaster Login</h1>
+
+<p class="subtitle">
+SmartCard L.D.K Administration
+</p>
+
+<div class="security-badge">
+🔐 Authorized school administrator only
+</div>
+
+<form id="adminLoginForm">
+
+<label for="adminUsername">
+Administrator Username
+</label>
+
+<input
+type="text"
+id="adminUsername"
+placeholder="Enter administrator username"
+autocomplete="username"
+required
+>
+
+<label for="adminPassword">
+Administrator Password
+</label>
+
+<div class="password-box">
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Enter administrator password"
+autocomplete="current-password"
+required
+>
+
+<button
+type="button"
+onclick="toggleAdminPassword()"
+>
+👁
+</button>
+
+</div>
+
+<button
+type="submit"
+class="admin-login-btn"
+id="adminLoginButton"
+>
+<span id="adminLoginButtonText">
+Access Administration
+</span>
+</button>
+
+<p id="adminLoginMessage"></p>
+
+</form>
+
+<div class="back-link">
+<a href="login.html">← Back to Parent Login</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- Firebase -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <script src="js/admin-login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartCard L.D.K RFID Scanner</title>
+
+    <link rel="stylesheet" href="css/rfid.css">
+</head>
+
+<body>
+
+<nav class="rfid-nav">
+
+    <div class="rfid-logo">
+        📡 SmartCard <span>L.D.K</span>
+    </div>
+
+    <div class="rfid-role">
+        Headmaster • RFID Station
+    </div>
+
+</nav>
+
+
+<main class="rfid-container">
+
+
+    <!-- SCANNER -->
+
+    <section class="scanner-card">
+
+        <div class="scanner-icon">
+            📡
+        </div>
+
+        <h1>RFID Attendance Scanner</h1>
+
+        <p>
+            Scan a student's SmartCard to record
+            entrance or exit.
+        </p>
+
+
+        <div
+            id="scannerStatus"
+            class="scanner-status">
+
+            Ready to scan
+        </div>
+
+
+        <div class="scan-input">
+
+            <label for="rfidInput">
+                RFID Card ID
+            </label>
+
+            <input
+                type="text"
+                id="rfidInput"
+                placeholder="Example: RFID001"
+                autocomplete="off"
+                autofocus
+            >
+
+            <button
+                type="button"
+                onclick="processScan()">
+
+                Scan Card
+            </button>
+
+        </div>
+
+
+        <p
+            id="scanMessage"
+            class="scan-message">
+        </p>
+
+    </section>
+
+
+
+    <!-- STUDENT RESULT -->
+
+    <section
+        id="studentResult"
+        class="student-result">
+
+        <div class="result-header">
+            Latest Scan
+        </div>
+
+
+        <div class="student-avatar">
+            👤
+        </div>
+
+
+        <h2 id="studentName">
+            Waiting for card
+        </h2>
+
+
+        <p id="studentClass">
+            Scan a SmartCard to identify the student
+        </p>
+
+
+        <div
+            id="attendanceType"
+            class="attendance-type">
+
+            Waiting
+        </div>
+
+
+        <div class="scan-details">
+
+            <div>
+                <span>Date</span>
+                <strong id="scanDate">—</strong>
+            </div>
+
+            <div>
+                <span>Time</span>
+                <strong id="scanTime">—</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RECENT SCANS -->
+
+    <section class="recent-scans">
+
+        <div class="recent-heading">
+
+            <h2>Recent Scans</h2>
+
+            <span id="scanCount">
+                0
+            </span>
+
+        </div>
+
+
+        <div id="recentScans">
+
+            <div class="empty-scan">
+                No attendance scans yet.
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- Firebase -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <script src="js/rfid.js"></script>
+    <script src="js/rfid-scanner.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SmartCard L.D.K Dashboard</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<nav class="dashboard-nav">
+    <div class="logo">🎓 SmartCard <span>L.D.K</span></div>
+
+    <div class="nav-actions">
+        <button onclick="openAttendance()">📅 Attendance</button>
+        <button onclick="openPayment()">💳 Fund Wallet</button>
+        <button onclick="logout()">🚪 Logout</button>
+    </div>
+</nav>
+
+<main class="dashboard-container">
+
+    <section class="welcome">
+        <div>
+            <p class="welcome-label">PARENT PORTAL</p>
+            <h1>Welcome back, <span id="username">User</span> 👋</h1>
+            <p>Manage your student's wallet, attendance and school updates.</p>
+        </div>
+    </section>
+
+    <section class="cards">
+
+        <div class="card wallet-card">
+            <div class="card-top">
+                <span>💳</span>
+                <small>AVAILABLE BALANCE</small>
+            </div>
+            <h2 id="walletBalance">0 RWF</h2>
+            <p>Student wallet balance</p>
+            <button onclick="openPayment()">+ Add Funds</button>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <span>📅</span>
+                <small>ATTENDANCE</small>
+            </div>
+            <h2 id="attendanceRate">0%</h2>
+            <p>Current attendance performance</p>
+            <button onclick="openAttendance()">View Report</button>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <span>🔔</span>
+                <small>NOTIFICATIONS</small>
+            </div>
+            <h2 id="notificationCount">0</h2>
+            <p>Latest school updates</p>
+        </div>
+
+    </section>
+
+    <section class="content-grid">
+
+        <div class="panel student-panel">
+            <div class="panel-header">
+                <div>
+                    <span class="panel-icon">🎓</span>
+                    <h2>Student Information</h2>
+                </div>
+            </div>
+
+            <div class="student-info">
+
+                <div class="info-row">
+                    <span>Student Name</span>
+                    <strong id="studentName">-</strong>
+                </div>
+
+                <div class="info-row">
+                    <span>Student ID</span>
+                    <strong id="studentId">-</strong>
+                </div>
+
+                <div class="info-row">
+                    <span>Class</span>
+                    <strong id="studentClass">-</strong>
+                </div>
+
+                <div class="info-row">
+                    <span>Account Role</span>
+                    <strong id="userRole">-</strong>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <span class="panel-icon">📅</span>
+                    <h2>Upcoming Activities</h2>
+                </div>
+            </div>
+
+            <div id="activitiesList">
+
+                <div class="activity">
+                    <span>📅</span>
+                    <div>
+                        <strong>Loading activities...</strong>
+                        <small>Please wait while we fetch school updates</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="quick-actions">
+
+        <div>
+            <p class="section-label">QUICK ACCESS</p>
+            <h2>What would you like to do?</h2>
+        </div>
+
+        <div class="action-buttons">
+            <button class="primary-action" onclick="openPayment()">
+                💳 Add Student Funds
+            </button>
+
+            <button class="secondary-action" onclick="openAttendance()">
+                📊 View Attendance
+            </button>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- Firebase -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

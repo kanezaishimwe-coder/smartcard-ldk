@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.development
+.env.production
+
+# Database
+*.db
+*.sqlite
+smartcard.db
+smartcard-backup.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.sln
+*.user
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build
+dist/
+build/
+*.tmp
+*.temp
+
+# Misc
+*.log
+coverage/
+.cache/

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SmartCard L.D.K Attendance</title>
+<link rel="stylesheet" href="css/attendance.css">
+</head>
+<body>
+
+<nav class="attendance-nav">
+<div class="attendance-brand">🎓 SmartCard <span>L.D.K</span></div>
+
+<div class="attendance-actions">
+<a href="dashboard.html">Dashboard</a>
+<button onclick="logout()">Logout</button>
+</div>
+</nav>
+
+<main class="attendance-container">
+
+<section class="attendance-header">
+<div>
+<p class="attendance-label">SMARTCARD ATTENDANCE</p>
+<h1>Attendance Management</h1>
+<p>Track student entry and exit records securely.</p>
+</div>
+</section>
+
+<section class="attendance-profile">
+
+<div class="profile-main">
+<div class="student-avatar">👤</div>
+
+<div>
+<span>Student</span>
+<h2 id="studentName">Student</h2>
+<p id="studentId">Student ID</p>
+</div>
+</div>
+
+<div class="profile-info">
+<div>
+<span>Class</span>
+<strong id="studentClass">-</strong>
+</div>
+
+<div>
+<span>Attendance</span>
+<strong id="attendanceRate">0%</strong>
+</div>
+
+<div>
+<span>Card Status</span>
+<strong id="cardStatus">Not Linked</strong>
+</div>
+</div>
+
+</section>
+
+<section class="attendance-summary">
+
+<div class="summary-card">
+<span>Present</span>
+<strong id="presentDays">0</strong>
+</div>
+
+<div class="summary-card">
+<span>Late</span>
+<strong id="lateDays">0</strong>
+</div>
+
+<div class="summary-card">
+<span>Absent</span>
+<strong id="absentDays">0</strong>
+</div>
+
+<div class="summary-card">
+<span>Total Scans</span>
+<strong id="totalScans">0</strong>
+</div>
+
+</section>
+
+<section class="attendance-section">
+
+<div class="section-title">
+<div>
+<h2>Attendance History</h2>
+<p>Recent SmartCard entry and exit activity</p>
+</div>
+
+<select id="attendanceFilter">
+<option value="all">All Records</option>
+<option value="ENTRY">Entry</option>
+<option value="EXIT">Exit</option>
+</select>
+</div>
+
+<div class="attendance-table-wrapper">
+
+<table>
+
+<thead>
+<tr>
+<th>Date</th>
+<th>Time</th>
+<th>Student</th>
+<th>Student ID</th>
+<th>Class</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="attendanceTableBody"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<section class="attendance-status">
+
+<div class="status-icon" id="statusIcon">🪪</div>
+
+<div>
+<h3 id="statusTitle">SmartCard Ready</h3>
+<p id="statusText">Your attendance records will appear here after your card is scanned.</p>
+</div>
+
+</section>
+
+</main>
+
+<!-- Firebase -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <script src="js/rfid.js"></script>
+    <script src="js/attendance.js"></script>
+
+</body>
+</html>

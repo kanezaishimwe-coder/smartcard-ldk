@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fund Student Wallet</title>
+
+<link rel="stylesheet" href="css/payment.css">
+
+</head>
+
+
+<body>
+
+
+<nav class="payment-nav">
+
+<div class="logo">
+    🎓 SmartCard L.D.K
+</div>
+
+<button onclick="backDashboard()">
+Dashboard
+</button>
+
+
+</nav>
+
+
+
+
+<section class="payment-container">
+
+
+<div class="payment-card">
+
+
+<h1>
+Fund Student Wallet
+</h1>
+
+
+<p>
+Secure student card balance update
+</p>
+
+
+
+
+<div class="form-group">
+
+<label>
+Student Number
+</label>
+
+
+<input 
+id="studentNumber"
+placeholder="ST20260001">
+
+
+<button onclick="findStudent()">
+
+Find Student
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div id="studentDetails" class="student-box hidden">
+
+
+<h3>
+Student Found ✔
+</h3>
+
+
+<p>
+Name:
+<b id="foundName">
+</b>
+</p>
+
+
+<p>
+Class:
+<b id="foundClass">
+</b>
+</p>
+
+
+<p>
+Current Balance:
+<b id="balance">
+</b>
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Amount
+</label>
+
+
+<input
+type="number"
+id="amount"
+placeholder="Enter amount">
+
+
+
+</div>
+
+
+
+
+
+<div class="fee-box">
+
+
+<p>
+Service Fee
+</p>
+
+
+<b>
+200 RWF
+</b>
+
+
+</div>
+
+
+
+
+<div class="total-box">
+
+
+Total:
+
+<span id="total">
+0 RWF
+</span>
+
+
+</div>
+
+
+
+
+
+<button class="pay-btn" onclick="openMoMo()">
+
+Continue Payment
+
+</button>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- MOMO MODAL -->
+
+
+<!-- MTN MOMO PAYMENT MODAL -->
+
+<div id="momoModal" class="modal">
+
+    <div class="momo-card">
+
+        <h2>MTN MoMo</h2>
+
+        <p>
+            Enter the MTN number that will make the payment.
+        </p>
+
+        <div class="form-group">
+
+            <label for="payerPhone">
+                MTN Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="payerPhone"
+                placeholder="25078XXXXXXXX"
+            >
+
+        </div>
+
+        <p id="paymentStatus">
+            Ready for payment
+        </p>
+
+        <div class="loader" id="paymentLoader" style="display:none;"></div>
+
+        <button
+            class="pay-btn"
+            onclick="startPayment()"
+        >
+            Pay with MTN MoMo
+        </button>
+
+        <button
+            type="button"
+            onclick="closeMoMo()"
+        >
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- Firebase -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <script src="js/payment.js"></script>
+
+
+</body>
+
+</html>

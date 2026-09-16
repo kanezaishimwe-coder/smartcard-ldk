@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartCard L.D.K</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🎓 SmartCard L.D.K
+        </div>
+
+        <div class="nav-links">
+            <a href="login.html">Login</a>
+            <a href="payment.html">Payments</a>
+            <a href="attendance.html">My Attendance</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Smart School
+                <span>Management</span>
+                Platform
+            </h1>
+
+            <p>
+                Secure attendance tracking, student wallet management,
+                and parent-school communication.
+            </p>
+
+            <button type="button" onclick="scrollRegister()">
+                Get Started →
+            </button>
+
+        </div>
+
+
+        <!-- REGISTRATION CARD -->
+        <div class="register-card" id="register">
+
+            <h2>Create Parent Account</h2>
+
+            <p class="subtitle">
+                Register to access SmartCard L.D.K parent services
+            </p>
+
+
+            <form id="registerForm" autocomplete="off">
+
+                <!-- NAME -->
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <!-- PHONE -->
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="078xxxxxxx"
+                    required
+                >
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <!-- PASSWORD -->
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Minimum 6 characters"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        onclick="showPassword()"
+                        aria-label="Show password"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                <!-- PASSWORD STRENGTH -->
+                <div class="password-strength">
+                    <div id="strengthBar"></div>
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    required
+                >
+
+
+                <!-- TERMS -->
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I agree to SmartCard L.D.K terms
+                    </span>
+
+                </div>
+
+
+                <!-- REGISTER BUTTON -->
+                <button
+                    type="submit"
+                    class="register-btn"
+                >
+                    <span id="btnText">
+                       <b>Create Account</b>
+                    </span>
+                </button>
+
+
+                <!-- DIVIDER -->
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+
+                <!-- GOOGLE -->
+                <button
+                    type="button"
+                    class="google-btn"
+                    onclick="continueWithGoogle()"
+                >
+                    <span>G</span>
+                    Continue with Google
+                </button>
+
+
+                <!-- LOGIN -->
+                <p class="login-link">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Sign in
+                    </a>
+
+                </p>
+
+
+                <!-- MESSAGE -->
+                <p id="message"></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Firebase -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <!-- MAIN JAVASCRIPT -->
+    <script src="js/app.js"></script>
+
+
+    <!-- PAGE INITIALIZATION -->
+    <script>
+
+        window.addEventListener("load", function () {
+
+            const user = localStorage.getItem("smartCampusUser");
+
+            if (!user) {
+                return;
+            }
+
+            try {
+
+                const account = JSON.parse(user);
+
+                if (
+                    account &&
+                    account.role === "Parent"
+                ) {
+
+                    window.location.href = "dashboard.html";
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Invalid saved user:",
+                    error
+                );
+
+                localStorage.removeItem("smartCampusUser");
+
+            }
+
+        });
+
+
+        function scrollRegister() {
+
+            const register =
+                document.getElementById("register");
+
+            if (register) {
+
+                register.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

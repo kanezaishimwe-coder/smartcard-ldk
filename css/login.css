@@ -1,0 +1,43 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}
+body{min-height:100vh;background:#f6f8f7;color:#111}
+.login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px}
+.login-card{width:410px;background:#fff;border:1px solid #e8ece9;border-radius:20px;padding:30px;box-shadow:0 15px 45px rgba(0,0,0,.08)}
+.login-brand{text-align:center;color:#16a34a;font-size:20px;font-weight:800;margin-bottom:25px}
+.login-card h1{font-size:28px;margin-bottom:5px}
+.login-subtitle{font-size:14px;color:#777;margin-bottom:23px}
+.login-card label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.login-card>form>label{margin-top:15px}
+.login-card input[type="text"],.login-card input[type="email"],.login-card input[type="tel"],.login-card input[type="password"]{width:100%;height:46px;border:1px solid #dfe4e1;border-radius:10px;padding:0 13px;outline:none;font-size:13px}
+.login-card input:focus{border-color:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,.1)}
+.password-box{display:flex;gap:6px}
+.password-box input{flex:1}
+.password-box button{width:48px;border:0;border-radius:10px;background:#f0f2f1;cursor:pointer;font-size:17px}
+.password-box button:hover{background:#e5e9e7}
+.login-options{display:flex;justify-content:space-between;align-items:center;margin:13px 0 18px;font-size:12px}
+.remember{display:flex!important;align-items:center;gap:6px;margin:0!important;font-weight:500!important}
+.remember input{accent-color:#16a34a}
+.login-options a{color:#16a34a;text-decoration:none;font-weight:700}
+.login-options a:hover{text-decoration:underline}
+.login-btn,.google-btn{width:100%;height:46px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:.2s}
+.login-btn{border:0;background:#16a34a;color:#fff}
+.login-btn:hover{background:#15803d;transform:translateY(-1px)}
+.login-btn:disabled{opacity:.7;cursor:not-allowed;transform:none}
+.divider{display:flex;align-items:center;gap:10px;margin:20px 0;color:#aaa;font-size:11px}
+.divider:before,.divider:after{content:"";height:1px;background:#e5e7eb;flex:1}
+.google-btn{border:1px solid #dfe4e1;background:#fff;color:#303030;display:flex;align-items:center;justify-content:center;gap:11px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.google-btn:hover{background:#fbfcfc;border-color:#b9c2bd;box-shadow:0 4px 12px rgba(0,0,0,.08);transform:translateY(-1px)}
+.google-btn:focus-visible{outline:3px solid rgba(66,133,244,.22);outline-offset:2px}
+.google-icon{width:19px;height:19px;flex:0 0 19px}
+#loginMessage{text-align:center;font-size:13px;font-weight:600;margin-top:13px;min-height:18px}
+.register-link{text-align:center;margin-top:22px;font-size:13px;color:#777}
+.register-link a{color:#16a34a;font-weight:700;text-decoration:none}
+.register-link a:hover{text-decoration:underline}
+.admin-link{text-align:center;margin-top:18px;padding-top:17px;border-top:1px solid #edf0ee;font-size:12px;color:#888}
+.admin-link a{color:#111;text-decoration:none;font-weight:700}
+.admin-link a:hover{color:#16a34a}
+@media(max-width:480px){
+.login-page{padding:15px}
+.login-card{width:100%;max-width:410px;padding:24px 20px;border-radius:17px}
+.login-brand{font-size:19px;margin-bottom:22px}
+.login-card h1{font-size:25px}
+}

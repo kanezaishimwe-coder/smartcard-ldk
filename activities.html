@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Activities - SmartCard L.D.K</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div id="adminLogin" class="admin-login">
+        <div class="admin-login-card">
+            <div class="admin-logo">🎓</div>
+            <h1>SmartCard L.D.K</h1>
+            <p>Headmaster Administration</p>
+            <form id="adminLoginForm">
+                <label for="adminUsername">Username</label>
+                <input id="adminUsername" type="text" placeholder="Headmaster username" autocomplete="username" required>
+                <label for="adminPassword">Password</label>
+                <div class="admin-password">
+                    <input id="adminPassword" type="password" placeholder="Enter secure password" autocomplete="current-password" required>
+                    <button type="button" onclick="toggleAdminPassword()" aria-label="Show password">👁</button>
+                </div>
+                <button type="submit" class="admin-login-btn">Sign In</button>
+                <p id="adminLoginMessage"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="admin-panel hidden">
+        <nav class="admin-nav">
+            <div class="admin-brand">🎓 SmartCard <span>L.D.K</span></div>
+            <div class="admin-actions">
+                <span id="adminName">Headmaster</span>
+                <button type="button" onclick="adminLogout()">Logout</button>
+            </div>
+        </nav>
+
+        <main class="admin-container">
+            <div class="admin-header">
+                <p class="admin-label">SCHOOL ACTIVITIES</p>
+                <h1>Activities & Events</h1>
+                <p>Create and manage school activities, events, and announcements.</p>
+            </div>
+
+            <section class="admin-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>📅 Create New Activity</h2>
+                        <p>Add a school activity or event.</p>
+                    </div>
+                </div>
+                <form id="activityForm" class="card-form" autocomplete="off">
+                    <div>
+                        <label for="activityTitle">Activity Title</label>
+                        <input id="activityTitle" type="text" placeholder="e.g., Science Fair 2026" required>
+                    </div>
+                    <div>
+                        <label for="activityDescription">Description</label>
+                        <textarea id="activityDescription" rows="3" placeholder="Activity details..."></textarea>
+                    </div>
+                    <div>
+                        <label for="activityType">Activity Type</label>
+                        <select id="activityType">
+                            <option value="GENERAL">General</option>
+                            <option value="ACADEMIC">Academic</option>
+                            <option value="SPORTS">Sports</option>
+                            <option value="CULTURAL">Cultural</option>
+                            <option value="MEETING">Parent Meeting</option>
+                            <option value="EXAM">Examination</option>
+                            <option value="HOLIDAY">Holiday</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="activityDate">Event Date</label>
+                        <input id="activityDate" type="date" required>
+                    </div>
+                    <div>
+                        <label for="activityLocation">Location</label>
+                        <input id="activityLocation" type="text" placeholder="e.g., School Hall">
+                    </div>
+                    <div>
+                        <label for="activityTargetClass">Target Class (optional)</label>
+                        <input id="activityTargetClass" type="text" placeholder="e.g., S4 MPC - leave blank for all">
+                    </div>
+                    <div class="card-form-buttons">
+                        <button type="submit">Create Activity</button>
+                    </div>
+                </form>
+                <p id="activityMessage"></p>
+            </section>
+
+            <section class="admin-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>📋 School Activities List</h2>
+                        <p>View, edit, or deactivate school activities.</p>
+                    </div>
+                    <input type="text" id="activitySearch" placeholder="Search activities...">
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Target</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activityTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Firebase -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <script src="js/admin.js"></script>
+    <script src="js/activities.js"></script>
+    <script>
+        "use strict";
+        function getSmartCardUsers() {
+            try {
+                const users = JSON.parse(localStorage.getItem("smartCampusUsers") || "[]");
+                return Array.isArray(users) ? users : [];
+            } catch (error) {
+                console.error("Unable to read SmartCard users:", error);
+                return [];
+            }
+        }
+        function saveSmartCardUsers(users) {
+            localStorage.setItem("smartCampusUsers", JSON.stringify(users));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}
+body{background:#f6f8f7;color:#111;min-height:100vh}
+.attendance-nav{height:72px;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 45px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.attendance-brand{font-size:22px;font-weight:800}
+.attendance-brand span{color:#dcfce7}
+.attendance-actions{display:flex;align-items:center;gap:20px}
+.attendance-actions a{color:#fff;text-decoration:none;font-size:14px;font-weight:700}
+.attendance-actions button{border:0;background:#fff;color:#15803d;border-radius:9px;padding:9px 16px;font-weight:700;cursor:pointer}
+.attendance-container{max-width:1200px;margin:auto;padding:35px 22px}
+.attendance-label{color:#16a34a;font-size:11px;font-weight:800;letter-spacing:1px}
+.attendance-header h1{font-size:34px;margin:5px 0}
+.attendance-header>div>p:last-child{color:#777;font-size:14px}
+.attendance-profile{margin-top:28px;background:#fff;border:1px solid #e5ebe7;border-radius:18px;padding:25px;display:flex;align-items:center;justify-content:space-between;gap:30px;box-shadow:0 8px 25px rgba(0,0,0,.05)}
+.profile-main{display:flex;align-items:center;gap:16px}
+.student-avatar{width:58px;height:58px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;font-size:27px}
+.profile-main span,.profile-info span{display:block;color:#888;font-size:11px;font-weight:600}
+.profile-main h2{font-size:21px;margin:3px 0}
+.profile-main p{font-size:12px;color:#777}
+.profile-info{display:flex;gap:35px}
+.profile-info strong{display:block;color:#16a34a;margin-top:4px;font-size:15px}
+.attendance-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+.summary-card{background:#fff;border:1px solid #e5ebe7;border-radius:14px;padding:20px;box-shadow:0 5px 18px rgba(0,0,0,.04)}
+.summary-card span{display:block;color:#777;font-size:12px;font-weight:600}
+.summary-card strong{display:block;font-size:25px;margin-top:8px;color:#16a34a}
+.attendance-section{background:#fff;border:1px solid #e5ebe7;border-radius:18px;padding:22px;box-shadow:0 8px 25px rgba(0,0,0,.05)}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.section-title h2{font-size:18px}
+.section-title p{font-size:12px;color:#888;margin-top:4px}
+#attendanceFilter{height:38px;border:1px solid #dfe5e1;border-radius:9px;padding:0 12px;outline:none;background:#fff}
+.attendance-table-wrapper{width:100%;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th{text-align:left;color:#777;font-size:11px;text-transform:uppercase;padding:12px 10px;border-bottom:1px solid #e5e7eb}
+td{padding:14px 10px;border-bottom:1px solid #edf0ee;font-size:13px}
+td:last-child{font-weight:700}
+.entry{color:#15803d}
+.exit{color:#dc2626}
+.attendance-status{margin-top:20px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:15px;padding:18px;display:flex;align-items:center;gap:15px}
+.status-icon{width:45px;height:45px;border-radius:12px;background:#dcfce7;display:flex;align-items:center;justify-content:center;font-size:22px}
+.attendance-status h3{font-size:15px}
+.attendance-status p{font-size:12px;color:#777;margin-top:3px}
+@media(max-width:850px){
+.attendance-profile{align-items:flex-start;flex-direction:column}
+.profile-info{width:100%;justify-content:space-between}
+.attendance-summary{grid-template-columns:1fr 1fr}
+}
+@media(max-width:550px){
+.attendance-nav{height:auto;padding:14px 16px}
+.attendance-brand{font-size:18px}
+.attendance-actions{gap:10px}
+.attendance-actions a{font-size:12px}
+.attendance-actions button{padding:8px 11px;font-size:11px}
+.attendance-container{padding:25px 14px}
+.attendance-header h1{font-size:27px}
+.profile-info{gap:12px;flex-wrap:wrap}
+.profile-info>div{min-width:80px}
+.attendance-summary{gap:9px}
+.summary-card{padding:15px}
+.summary-card strong{font-size:21px}
+.section-title{align-items:flex-start;gap:15px}
+}

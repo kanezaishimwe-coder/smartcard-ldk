@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SmartCard L.D.K Login</title>
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<div class="login-page">
+<div class="login-card">
+
+<div class="login-brand">
+🎓 <span>SmartCard L.D.K</span>
+</div>
+
+<h1>Welcome back</h1>
+<p class="login-subtitle">Sign in to your Parent Portal</p>
+
+<form id="loginForm" autocomplete="on">
+
+<label for="loginEmail">Email or Username</label>
+<input
+type="text"
+id="loginEmail"
+placeholder="Enter your email"
+autocomplete="email"
+required
+>
+
+<label for="loginPhone">Phone Number</label>
+<input
+type="tel"
+id="loginPhone"
+placeholder="078xxxxxxx"
+autocomplete="tel"
+required
+>
+
+<label for="loginPassword">Password</label>
+
+<div class="password-box">
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter your password"
+autocomplete="current-password"
+required
+>
+<button type="button" onclick="togglePassword()">👁</button>
+</div>
+
+<div class="login-options">
+<label class="remember">
+<input type="checkbox" id="rememberMe">
+<span>Remember me</span>
+</label>
+
+<a href="#" onclick="forgotPassword(event)">Forgot password?</a>
+</div>
+
+<button type="submit" class="login-btn" id="loginButton">
+<span id="loginButtonText">Sign In</span>
+</button>
+
+<div class="divider">
+<span>OR</span>
+</div>
+
+<button
+type="button"
+class="google-btn"
+onclick="googleLogin()"
+aria-label="Continue with Google"
+>
+<svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true">
+<path fill="#4285F4" d="M21.35 12.27c0-.75-.07-1.48-.22-2.18H12v4.12h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.7 2.91-4.2 2.91-7.33Z"/>
+<path fill="#34A853" d="M12 21.6c2.63 0 4.84-.87 6.45-2.36l-3.14-2.45c-.87.58-1.98.92-3.31.92-2.54 0-4.7-1.72-5.47-4.03H3.29v2.53A9.74 9.74 0 0 0 12 21.6Z"/>
+<path fill="#FBBC05" d="M6.53 13.68A5.86 5.86 0 0 1 6.22 12c0-.58.1-1.14.31-1.68V7.79H3.29A9.6 9.6 0 0 0 2.25 12c0 1.52.36 2.95 1.04 4.21l3.24-2.53Z"/>
+<path fill="#EA4335" d="M12 6.29c1.43 0 2.71.49 3.72 1.45l2.79-2.79C16.84 3.4 14.63 2.4 12 2.4a9.74 9.74 0 0 0-8.71 5.39l3.24 2.53C7.3 8.01 9.46 6.29 12 6.29Z"/>
+</svg>
+<span>Continue with Google</span>
+</button>
+
+<p id="loginMessage"></p>
+
+</form>
+
+<div class="register-link">
+Don't have an account?
+<a href="index.html">Create Parent Account</a>
+</div>
+
+<div class="admin-link">
+School administrator?
+<a href="admin-login.html">Headmaster Login</a>
+</div>
+
+</div>
+</div>
+
+<!-- Firebase -->
+<script type="module" src="js/firebase.js"></script>
+
+<!-- Login Script -->
+<script type="module" src="js/login.js"></script>
+
+</body>
+</html>
