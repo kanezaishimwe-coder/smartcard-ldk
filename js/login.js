@@ -118,32 +118,16 @@ async function checkRedirectResult() {
             return;
         }
 
-        const phone = window.prompt("Enter your Rwanda phone number:");
-        const normalizedPhone = normalizePhone(phone);
-        if (!/^07\d{8}$/.test(normalizedPhone)) {
-            showLoginMessage("Enter a valid Rwanda phone number.");
-            return;
-        }
-
         const email = normalizeEmail(user.email);
         const users = getUsers();
-        let existingUser = users.find(u =>
-            normalizeEmail(u.email) === email &&
-            normalizePhone(u.phone) === normalizedPhone
-        );
+        let existingUser = users.find(u => normalizeEmail(u.email) === email);
 
         if (!existingUser) {
-            const sameEmail = users.some(u => normalizeEmail(u.email) === email);
-            const samePhone = users.some(u => normalizePhone(u.phone) === normalizedPhone);
-            if (sameEmail || samePhone) {
-                showLoginMessage("Email and phone do not match.");
-                return;
-            }
             existingUser = {
                 id: "USR-" + Date.now(),
                 name: user.displayName || email.split("@")[0],
                 email,
-                phone: normalizedPhone,
+                phone: "",
                 username: email,
                 role: "Parent",
                 password: "",
