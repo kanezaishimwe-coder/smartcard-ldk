@@ -101,7 +101,7 @@ async function checkRedirectResult() {
     try {
         const auth = firebase.auth();
         const result = await auth.getRedirectResult();
-        if (!result) return;
+        if (!result || !result.user) return;
 
         const user = result.user;
         const idToken = await user.getIdToken();
